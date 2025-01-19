@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minesweeper با Cpp</title>
+	<link rel="icon" type="logo/jpg" href="assets/images/logo.jpg" sizes="16x16">
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Minesweeper</h1>
+            </div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="#home">خانه</a></li>
+                    <li><a href="#about">درباره پروژه</a></li>
+                    <li><a href="#rules">قوانین</a></li>
+                    <li><a href="#features">ویژگی‌ها</a></li>
+                    <li><a href="#contact">تماس</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Project Details -->
+    <section class="project-details animated">
+        <div class="container">
+            <h2>درباره پروژه</h2>
+            <p>
+                این پروژه یک بازی **Minesweeper** است که با زبان **C++** پیاده‌سازی شده است. بازی شامل یک صفحه مربعی است که در آن بازیکن باید با حدس زدن خانه‌های امن، از مین‌ها دوری کند.
+            </p>
+			<div class="project-image">
+            <img src="assets/images/minesweeper.jpg" alt="تصویر بازی Minesweeper">
+        </div>
+        </div>
+    </section>
+
+    <!-- Rules -->
+    <section class="rules animated">
+        <div class="container">
+            <h2>قوانین بازی</h2>
+            <ul>
+                <li>صفحه بازی به خانه‌هایی تقسیم می‌شود که مین‌ها به طور تصادفی در بعضی از آن‌ها توزیع شده‌اند.</li>
+                <li>بازیکن باید وضعیت تمام خانه‌ها را معلوم کند تا برنده شود.</li>
+                <li>عدد روی هر خانه تعداد مین‌های مجاور آن (8 خانه همسایه) را نشان می‌دهد.</li>
+                <li>با استفاده از این اطلاعات، بازیکن می‌تواند خانه‌های امن را مشخص کند و خانه‌های مین‌دار را با پرچم علامت‌گذاری کند.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Structures -->
+    <section class="structures animated">
+        <div class="container">
+            <h2>ساختارهای مورد نیاز</h2>
+            <ul>
+                <li><strong>ساختار بازیکن:</strong> شامل نام کاربری، تعداد بردها و تعداد باخت‌ها.</li>
+                <li><strong>ساختار زمین بازی:</strong> شامل تعداد سطرها، ستون‌ها، مین‌ها و آرایه‌ای از خانه‌ها.</li>
+                <li><strong>آرایه‌ای از بازیکن‌ها:</strong> برای ذخیره اطلاعات همه بازیکن‌ها.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Menu -->
+    <section class="menu animated">
+        <div class="container">
+            <h2>منوی بازی</h2>
+            <ul>
+                <li><strong>شروع بازی جدید:</strong> کاربر می‌تواند بین سه سطح دشواری (آسان، متوسط، سخت) انتخاب کند.</li>
+                <li><strong>مشاهده جدول امتیازات:</strong> نمایش رتبه‌بندی بازیکن‌ها بر اساس تعداد بردها و باخت‌ها.</li>
+                <li><strong>خروج از بازی:</strong> ذخیره اطلاعات بازیکن‌ها در فایل و خروج از برنامه.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features animated">
+        <div class="container">
+            <h2>ویژگی‌های اضافه</h2>
+            <ul>
+                <li>نمایش زمان سپری‌شده در بازی.</li>
+                <li>امکان ذخیره و ادامه بازی در آینده.</li>
+                <li>شروع هوشمند: خانه اولی که کاربر انتخاب می‌کند، مین نباشد.</li>
+                <li>امکان استفاده از کلیدهای کیبورد برای حرکت در بازی.</li>
+                <li>ثبت رکوردها و نمایش بهترین زمان‌ها برای هر سطح دشواری.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Code Snippet -->
+    <section class="code-snippet animated">
+        <div class="container">
+            <h2>نمونه کد</h2>
+            <p>در زیر بخشی از کد مربوط به ایجاد صفحه بازی آورده شده است:</p>
+            <pre>
+                <code>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+const int SIZE = 10;
+
+void initializeBoard(vector&lt;vector&lt;char&gt;&gt; &board) {
+    for (int i = 0; i &lt; SIZE; i++) {
+        for (int j = 0; j &lt; SIZE; j++) {
+            board[i][j] = '-';
+        }
+    }
+}
+
+void printBoard(const vector&lt;vector&lt;char&gt;&gt; &board) {
+    for (int i = 0; i &lt; SIZE; i++) {
+        for (int j = 0; j &lt; SIZE; j++) {
+            cout &lt;&lt; board[i][j] &lt;&lt; " ";
+        }
+        cout &lt;&lt; endl;
+    }
+}
+
+int main() {
+    vector&lt;vector&lt;char&gt;&gt; board(SIZE, vector&lt;char&gt;(SIZE));
+    initializeBoard(board);
+    printBoard(board);
+    return 0;
+}
+                </code>
+            </pre>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact animated">
+        <div class="container">
+            <h2>تماس با من</h2>
+            <p>اگر سوالی دارید یا می‌خواهید در مورد پروژه بیشتر بدانید، از طریق ایمیل با من در ارتباط باشید:</p>
+            <p><strong>ایمیل:</strong> erfanrahmat01@gmail.com</p>
+            <a href="mailto:erfanrahmat01@gmail.com" class="btn">ارسال ایمیل</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="animated">
+        <div class="container">
+            <p>ساخته شده با ❤</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/script.js"></script>
+</body>
+</html>

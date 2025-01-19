@@ -1,0 +1,199 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* تعریف فونت Vazir */
+@font-face {
+    font-family: 'Vazir';
+    src: url('fonts/Vazir-Regular.woff2') format('woff2'),
+         url('fonts/Vazir-Regular.woff') format('woff'),
+         url('fonts/Vazir-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* استایل‌های کلی */
+body {
+    font-family: 'Vazir', Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2 {
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.project-details, .rules, .structures, .menu, .features, .code-snippet, .contact {
+    background: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.rules ul, .structures ul, .menu ul, .features ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.rules ul li, .structures ul li, .menu ul li, .features ul li {
+    background: #e4e4e4;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.code-snippet pre {
+    background: #282c34;
+    color: #abb2bf;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    text-align: left;
+    direction: ltr;
+}
+
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+/* دکمه‌ها */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+/* انیمیشن‌ها */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animated {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.project-image {
+    margin-top: 20px;
+    text-align: center; /* عکس را در وسط قرار دهید */
+}
+
+.project-image img {
+    max-width: 100%; /* عکس بیش از حد بزرگ نشود */
+    height: auto; /* نسبت ابعاد عکس حفظ شود */
+    border-radius: 8px; /* گوشه‌های عکس گرد شود */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* سایه به عکس اضافه شود */
+}
+
+/* هدر و منوی زیبا */
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+header .logo h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+header .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .nav-list {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+header .nav-list li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+header .nav-list li a:hover {
+    color: #f1c40f;
+}
+
+/* منوی همبرگری برای موبایل */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+/* استایل‌های واکنش‌گرا */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-list {
+        position: fixed;
+        top: 60px;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background-color: #4CAF50;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: 0.5s;
+    }
+
+    .nav-list.active {
+        right: 0;
+    }
+
+    .nav-list li {
+        margin: 20px 0;
+    }
+}
